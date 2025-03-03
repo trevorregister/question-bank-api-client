@@ -1,18 +1,30 @@
 import axios, { AxiosInstance } from 'axios'
+import Users from './users'
 
-
-const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000/api'
-})
-
+interface ClientConfig {
+    baseURL: string,
+    headers: any,
+    withCredentials: boolean
+}
 class Client {
-    readonly client: AxiosInstance
-    readonly test: string
-    constructor(config: AxiosInstance){
-        this.client = config
-        this.test = 'test'
+    readonly users: Users
+
+    private instance: AxiosInstance
+    constructor(config: ClientConfig){
+        this.instance = axios.create(config)
+        this.users = new Users(this.instance)
     }
 }
 
-const client = new Client(axiosInstance)
-export default client
+const client = new Client({
+    headers: {
+        "Content-Type": "application/json"
+    },
+    baseURL: "localhost:3000/api" ,
+    withCredentials: true
+})
+
+export {
+    Client,
+    client
+}

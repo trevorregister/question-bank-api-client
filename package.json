@@ -3,6 +3,14 @@
   "version": "1.0.1",
   "main": "index.ts",
   "type": "module",
+  "scripts": {
+    "lint-staged": {
+      "./src/**": [
+        "npx lint .",
+        "npx prettier --write ./src/**"
+      ]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/trevorregister/question-bank-api-client.git"
