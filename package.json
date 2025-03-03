@@ -1,4 +1,11 @@
 {
+  "name": "question-bank-api-client",
+  "version": "1.0.0",
+  "main": "client.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trevorregister/question-bank-api-client.git"
+  },
   "devDependencies": {
     "eslint": "^9.21.0",
     "husky": "^9.1.7",
