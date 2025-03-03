@@ -1,7 +1,7 @@
 {
   "name": "question-bank-api-client",
-  "version": "1.0.0",
-  "main": "client.ts",
+  "version": "1.0.1",
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/trevorregister/question-bank-api-client.git"
@@ -12,5 +12,9 @@
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "axios": "^1.8.1",
+    "dotenv": "^16.4.7"
   }
 }
