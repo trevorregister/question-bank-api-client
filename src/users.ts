@@ -40,7 +40,8 @@ export default class Users {
     }
 
     async loginEmailPassword(credentials: LoginEmailPasswordRequest): Promise<LoginResponse> {
-        const { data } = await this.client.post('/users/login/email-password', credentials)
+        const { email, password } = credentials
+        const { data } = await this.client.post('/users/login/email-password', {email: email, password: password})
         return await data
     }
 }
