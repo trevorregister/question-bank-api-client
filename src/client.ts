@@ -1,16 +1,18 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 
 
-const config = axios.create({
+const axiosInstance = axios.create({
     baseURL: 'http://localhost:3000/api'
 })
 
 class Client {
-    readonly client: any
-    constructor(config){
+    readonly client: AxiosInstance
+    readonly test: string
+    constructor(config: AxiosInstance){
         this.client = config
+        this.test = 'test'
     }
 }
 
-const client = new Client(config)
+const client = new Client(axiosInstance)
 export default client
