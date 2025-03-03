@@ -20,7 +20,7 @@ const client = new Client({
     headers: {
         "Content-Type": "application/json"
     },
-    baseURL: "localhost:3000/api" ,
+    baseURL: "http://localhost:3000/api" ,
     withCredentials: true
 })
 
