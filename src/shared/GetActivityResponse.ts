@@ -22,4 +22,5 @@ export default interface GetActivityResponse {
     type: QuestionType
     isArchived: boolean
     isDeleted: boolean
+    tags: string[]
 }

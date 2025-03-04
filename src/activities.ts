@@ -20,6 +20,7 @@ interface CreateActivityRequest {
         summary: string
         sectionIndex: number
     }[]
+    tags?: string[]
 }
 
 interface UpdateActivityRequest {
