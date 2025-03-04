@@ -1,9 +1,5 @@
 import { AxiosInstance } from 'axios'
 
-interface GetUserRequest {
-    id: string
-}
-
 interface GetUserResponse {
     id: string
     firstName: string
@@ -20,6 +16,10 @@ interface CreateUserRequest {
     password: string
 }
 
+interface CreateUserResponse {
+    token: string
+}
+
 interface LoginEmailPasswordRequest {
     email: string
     password: string
@@ -33,15 +33,16 @@ export default class Users {
     constructor(client: AxiosInstance){
         this.client = client
     }
-
-    async getUser(id: GetUserRequest): Promise<GetUserResponse> {
+    async getUser(id: string): Promise<GetUserResponse> {
        const { data } = await this.client.get(`/users/${id}`)
-       return await data
+       return data
     }
-
-    async loginEmailPassword(credentials: LoginEmailPasswordRequest): Promise<LoginResponse> {
-        const { email, password } = credentials
+    async loginEmailPassword({email, password}: LoginEmailPasswordRequest): Promise<LoginResponse> {
         const { data } = await this.client.post('/users/login/email-password', {email: email, password: password})
-        return await data
+        return data
+    }
+    async createUser({firstName, lastName, email, password, role}: CreateUserRequest): Promise<CreateUserResponse>{
+        const { data } = await this.client.post('/users', {firstName: firstName, lastName: lastName, email: email, password: password, role: role})
+        return data
     }
 }
