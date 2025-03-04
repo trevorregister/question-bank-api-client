@@ -2,6 +2,8 @@ import { AxiosInstance } from "axios"
 import { QuestionType } from "./shared/types"
 import GetActivityResponse from "./shared/GetActivityResponse"
 import GetQuestionResponse from "./shared/GetQuestionResponse"
+import CreateVariableRequest from "./shared/CreateVariableRequest"
+import CreateConditionRequest from "./shared/CreateConditionRequest"
 import { VariableType } from "./shared/types"
 
 interface CreateQuestionRequest {
@@ -21,21 +23,9 @@ interface CreateQuestionResponse {
     isDeleted: false
 }
 
-interface CreateVariableRequest {
-    questionId: string
-    type: VariableType
-    min: number
-    max: number
-    step: number
-    label: string
-}
 
-interface CreateConditionRequest{
-    questionId: string
-    expression: string
-    isCorrect: boolean
-    feedback: string
-}
+
+
 
 interface DeleteVariableRequest {
     questionId: string
