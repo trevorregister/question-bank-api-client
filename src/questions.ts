@@ -6,16 +6,26 @@ import CreateVariableRequest from "./shared/CreateVariableRequest"
 import CreateConditionRequest from "./shared/CreateConditionRequest"
 import { VariableType } from "./shared/types"
 
+interface Variable {
+    id: string
+    label: string
+    min: number
+    max: number
+    step: number
+    type: VariableType
+}
 interface CreateQuestionRequest {
     prompt: string
     pointValue: number
-    type: QuestionType
+    type: QuestionType,
+    variables: Variable[] | []
+    conditions: []
 }
 
 interface CreateQuestionResponse {
     id: string
     prompt: string
-    variables: []
+    variables: Variable | []
     conditions: []
     pointValue: number
     owner: string
@@ -66,8 +76,8 @@ export default class Questions {
         this.client = client
     }
 
-    async create({prompt, pointValue, type}: CreateQuestionRequest): Promise<CreateQuestionResponse>{
-        const payload = {prompt: prompt, pointValue: pointValue, type: type}
+    async create({prompt, pointValue, type, variables = [], conditions = []}: CreateQuestionRequest): Promise<CreateQuestionResponse>{
+        const payload = {prompt: prompt, pointValue: pointValue, type: type, variables: variables, conditions: conditions}
         const { data } = await this.client.post('/questions', payload)
         return await data
     }
