@@ -25,15 +25,15 @@ interface CreateQuestionRequest {
     prompt: string
     pointValue: number
     type: QuestionType,
-    variables: Variable[] | []
-    conditions: Condition[] | []
+    variables: Variable[]
+    conditions: Condition[]
 }
 
 interface CreateQuestionResponse {
     id: string
     prompt: string
-    variables: Variable[] | []
-    conditions: Condition[] | []
+    variables: Variable[]
+    conditions: Condition[]
     pointValue: number
     owner: string
     isArchived: false
@@ -57,21 +57,8 @@ interface UpdateQuestionRequest {
         pointValue?: number
         isArchived?: false
         isDeleted?: false
-        variables?: {
-            id: string
-            type: VariableType
-            min: number
-            max: number
-            step: number
-            label: string
-    
-        }[]
-        conditions?: {
-            id: string
-            expression: string
-            isCorrect: boolean
-            feedback: string
-        }[]
+        variables?: Variable[]
+        conditions?: Condition[]
     }
 }
 
