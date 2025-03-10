@@ -14,28 +14,31 @@ interface Variable {
     step: number
     type: VariableType
 }
+
+interface Condition {
+    id: string
+    expression: string
+    feedback: string
+    isCorrect: boolean
+}
 interface CreateQuestionRequest {
     prompt: string
     pointValue: number
     type: QuestionType,
     variables: Variable[] | []
-    conditions: []
+    conditions: Condition[] | []
 }
 
 interface CreateQuestionResponse {
     id: string
     prompt: string
-    variables: Variable | []
-    conditions: []
+    variables: Variable[] | []
+    conditions: Condition[] | []
     pointValue: number
     owner: string
     isArchived: false
     isDeleted: false
 }
-
-
-
-
 
 interface DeleteVariableRequest {
     questionId: string
@@ -55,17 +58,19 @@ interface UpdateQuestionRequest {
         isArchived?: false
         isDeleted?: false
         variables?: {
-            type?: VariableType
-            min?: number
-            max?: number
-            step?: number
-            label?: string
+            id: string
+            type: VariableType
+            min: number
+            max: number
+            step: number
+            label: string
     
         }[]
         conditions?: {
-            expression?: string
-            isCorrect?: boolean
-            feedback?: string
+            id: string
+            expression: string
+            isCorrect: boolean
+            feedback: string
         }[]
     }
 }
