@@ -1,5 +1,10 @@
-type VariableType = 'random' | 'matrix'
-type QuestionType = 'numerical'
+enum VariableType {
+    Random = 'random',
+    Matrix = 'matrix'
+}
+enum QuestionType {
+    Numerical = 'numerical'
+}
 
 export {
     VariableType,
