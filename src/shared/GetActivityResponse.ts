@@ -1,11 +1,9 @@
-import { QuestionType, VariableType } from "./types"
-
 export default interface GetActivityResponse {
     id: string
     prompt: string
     variables: {
         id: string
-        type: VariableType
+        type: string
         min: number
         max: number
         step: number
@@ -19,7 +17,7 @@ export default interface GetActivityResponse {
     }
     pointValue: number
     owner: string
-    type: QuestionType
+    type: string
     isArchived: boolean
     isDeleted: boolean
     tags: string[]

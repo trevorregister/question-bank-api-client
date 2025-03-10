@@ -1,5 +1,3 @@
-import { QuestionType, VariableType } from "./types"
-
 export default interface GetQuestionResponse {
     id: string
     prompt: string
@@ -7,10 +5,10 @@ export default interface GetQuestionResponse {
     owner: string
     isArchived: false
     isDeleted: false
-    type: QuestionType
+    type: string
     variables: {
         id: string
-        type: VariableType
+        type: string
         min: number
         max: number
         step: number

@@ -1,8 +1,6 @@
-import { VariableType } from "./types"
-
 export default interface CreateVariableRequest {
     questionId: string
-    type: VariableType
+    type: string
     min: number
     max: number
     step: number

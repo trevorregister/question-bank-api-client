@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios"
-import { QuestionType } from "./shared/types"
+import { string } from "./shared/types"
 import CreateConditionRequest from "./shared/CreateConditionRequest"
 import CreateVariableRequest from "./shared/CreateVariableRequest"
 import GetActivityResponse from "./shared/GetActivityResponse"
@@ -11,7 +11,7 @@ interface CreateActivityRequest {
         name: string
         questions: {
             parent: string
-            type: QuestionType
+            type: string
             prompt: string
             pointValue: number
             variables: CreateVariableRequest[]
@@ -32,7 +32,7 @@ interface UpdateActivityRequest {
         summary?: string
         questions?: {
             parent?: string
-            type: QuestionType
+            type: string
             prompt?: string
             pointValue?: number
             variables?: CreateVariableRequest[]

@@ -1,10 +1,8 @@
 import { AxiosInstance } from "axios"
-import { QuestionType } from "./shared/types"
 import GetActivityResponse from "./shared/GetActivityResponse"
 import GetQuestionResponse from "./shared/GetQuestionResponse"
 import CreateVariableRequest from "./shared/CreateVariableRequest"
 import CreateConditionRequest from "./shared/CreateConditionRequest"
-import { VariableType } from "./shared/types"
 
 interface Variable {
     id: string
@@ -12,7 +10,7 @@ interface Variable {
     min: number
     max: number
     step: number
-    type: VariableType
+    type: string
 }
 
 interface Condition {
@@ -24,7 +22,7 @@ interface Condition {
 interface CreateQuestionRequest {
     prompt: string
     pointValue: number
-    type: QuestionType,
+    type: string,
     variables: Variable[]
     conditions: Condition[]
 }
