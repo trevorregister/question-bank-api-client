@@ -53,8 +53,8 @@ interface UpdateQuestionRequest {
     payload: {
         prompt?: string
         pointValue?: number
-        isArchived?: false
-        isDeleted?: false
+        isArchived?: boolean
+        isDeleted?: boolean
         variables?: Variable[]
         conditions?: Condition[]
     }
